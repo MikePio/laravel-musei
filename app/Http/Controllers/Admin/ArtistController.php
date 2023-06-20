@@ -14,7 +14,7 @@ class ArtistController extends Controller
      */
     public function index()
     {
-        //
+        return view('artists.index');
     }
 
     /**
@@ -46,7 +46,7 @@ class ArtistController extends Controller
      */
     public function show(Artist $artist)
     {
-        //
+        return view('artists.show', compact('artist'));
     }
 
     /**
@@ -69,7 +69,11 @@ class ArtistController extends Controller
      */
     public function update(Request $request, Artist $artist)
     {
-        //
+        if($artist->name !== $form_data['name']){
+            $artist->slug = Artist::generateSlug($form_data['name']);
+        }else{
+            $form_data['slug'] = $artist->slug;
+        }
     }
 
     /**
@@ -80,6 +84,8 @@ class ArtistController extends Controller
      */
     public function destroy(Artist $artist)
     {
-        //
+        $artist->delete();
+
+        return redirect()->route('artists.index')->with('deleted', 'Deleted Successfully');
     }
 }
