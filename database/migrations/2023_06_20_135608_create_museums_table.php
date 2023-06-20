@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('museums', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('coordinates');
-            $table->string('state');
-            $table->string('image');
-            $table->string('theme');
-            $table->string('price');
-            $table->string('ratings',3);
-            $table->tinyInteger('rooms');
+            $table->string('coordinates')->nullable();
+            $table->string('state')->nullable();
+            $table->string('image')->nullable();
+            $table->string('theme')->nullable();
+            $table->string('price')->nullable();
+            $table->string('ratings',3)->nullable();
+            $table->tinyInteger('rooms')->nullable();
             $table->timestamps();
         });
     }
