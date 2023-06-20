@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-<div id="welcome">
-
+<div class="container">
+    ciao
 </div>
+
 @endsection
