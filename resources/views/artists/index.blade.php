@@ -9,6 +9,9 @@
   <table class="table">
     <thead class="thead-dark">
       <tr class="">
+
+        <th scope="col">#id</th>
+
         <th scope="col">#id</th>
         <th scope="col">Nome</th>
         <th scope="col">Data di nascita</th>
