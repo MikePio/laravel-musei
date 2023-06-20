@@ -10,7 +10,7 @@
     <thead class="thead-dark">
       <tr class="">
 
-        <th scope="col">#id</th>
+        <th scope="col">test conflict</th>
 
         <th scope="col">#id</th>
         <th scope="col">Nome</th>
