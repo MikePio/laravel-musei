@@ -11,6 +11,7 @@
       <tr class="">
         <th scope="col">#id</th>
         <th scope="col">Nome</th>
+        <th scope="col">Nome test</th>
         <th scope="col">Data di nascita</th>
         <th scope="col">Data di morte</th>
         <th scope="col">Opera</th>
@@ -27,6 +28,7 @@
           {{-- <td>{{ -> }}</td> --}}
           <td>#id</td>
           <td>name</td>
+          <td>name test</td>
           <td>birth_date</td>
           <td>death_date</td>
           <td>opera</td>
