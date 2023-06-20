@@ -20,17 +20,17 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($artists as $artist)
+                @foreach ($museums as $museum)
                     <tr>
-                        <td>{{ $artist->id }}</td>
-                        <td>{{ $artist->name }}</td>
-                        <td>{{ $artist->coordinates }}</td>
-                        <td>{{ $artist->state }}</td>
-                        <td>{{ $artist->image }}</td>
-                        <td>{{ $artist->theme }}</td>
-                        <td>{{ $artist->price }}</td>
-                        <td>{{ $artist->ratings }}</td>
-                        <td>{{ $artist->rooms }}</td>
+                        <td>{{ $museum->id }}</td>
+                        <td>{{ $museum->name }}</td>
+                        <td>{{ $museum->coordinates }}</td>
+                        <td>{{ $museum->state }}</td>
+                        <td>{{ $museum->image }}</td>
+                        <td>{{ $museum->theme }}</td>
+                        <td>{{ $museum->price }}</td>
+                        <td>{{ $museum->ratings }}</td>
+                        <td>{{ $museum->rooms }}</td>
 
                     </tr>
                 @endforeach
