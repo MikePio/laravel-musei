@@ -1,1 +1,7 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+#welcome{
+    background-image: url('https://blog.italotreno.it/wp-content/uploads/2020/10/Musei-piu-belli-d-italia-1140x637.jpg');
+    height: 100vh;
+    background-size: cover;
+}
