@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Museum extends Model
 {
     use HasFactory;
+
+    protected $fillable  = [
+        'name',
+        'coordinates',
+        'state',
+        'image',
+        'theme',
+        'price',
+        'ratings',
+        'rooms',
+    ];
 }
