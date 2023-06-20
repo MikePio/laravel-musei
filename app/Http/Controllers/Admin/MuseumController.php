@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MuseumRequest;
 use App\Models\Admin\Museum;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class MuseumController extends Controller
      */
     public function create()
     {
-        //
+        return  view('admin.museums.create');
     }
 
     /**
@@ -36,7 +37,7 @@ class MuseumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MuseumRequest $request)
     {
         //
     }
