@@ -65,5 +65,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 ## Tables Relationship 
-<img src="public/relationships.png
+<img src="relationships.png
 ">
