@@ -39,7 +39,13 @@ class MuseumController extends Controller
      */
     public function store(MuseumRequest $request)
     {
-        //
+        $form_data = $request->all();
+        $form_data['slug'] = Museum::generateSlug($form_data['name']);
+
+        $new_museum = Museum::create($form_data);
+
+        return redirect()->route('admin.museums.show', $new_museum);
+
     }
 
     /**
