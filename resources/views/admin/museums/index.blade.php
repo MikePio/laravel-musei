@@ -31,6 +31,26 @@
                         <td>{{ $museum->price }}</td>
                         <td>{{ $museum->ratings }}</td>
                         <td>{{ $museum->rooms }}</td>
+                        <td>
+
+                            <a href="{{ route('admin.museum.show', $project) }}" class="btn btn-info"><i
+                                    class="fa-solid fa-eye"></i></a>
+                            <a href="{{ route('admin.museum.edit', $project) }}" class="btn btn-primary"><i
+                                    class="fa-solid fa-pencil"></i></a>
+
+                        </td>
+
+                        <td>
+
+                            <form class="d-line" action="{{ route('admin.museum.destroy', $project) }}" method="POST"
+                             onsubmit="return confirm('Confermi di volerlo eliminare')">
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit" class="btn btn-danger"
+                                    title="Elimina">elimina</button>
+                            </form>
+                        </td>
 
                     </tr>
                 @endforeach
