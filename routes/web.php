@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\MuseumController;
+use App\Http\Controllers\Admin\OperaController;
+use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Guest\PageController;
+use App\Http\Controllers\Guest\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +21,15 @@ use App\Http\Controllers\Guest\PageController;
 
 Route::get('/',[PageController::class,'index']);
 
-Route::get('/admin', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::middleware('auth',  'verified')
+    ->name('admin.')
+    ->prefix('admin')
+    ->group(function(){
+        Route::get('/',[DashboardController::class,  'index'])->name('dashboard');
+        Route::resource('museums', MuseumController::class);
+        Route::resource('operas', OperaController::class );
+        Route::resource('artists', ArtistController::class );
+    });
 
 require __DIR__.'/auth.php';
