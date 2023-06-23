@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use App\Models\Artist;;
+use App\Models\Artist;
+use App\Models\Opera;
 
 
 class Artist extends Model
@@ -24,6 +25,10 @@ class Artist extends Model
 
     ];
 
+
+    public function operas(){
+        return $this->hasMany(Opera::class);
+    }
 
     public static function generateSlug($str){
         $slug = Str::slug($str, '-');
