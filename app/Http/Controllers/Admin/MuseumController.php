@@ -54,9 +54,9 @@ class MuseumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Museum $museum)
     {
-        //
+        return view('admin.museums.show', compact('museum'));
     }
 
     /**
@@ -65,9 +65,9 @@ class MuseumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Museum $museum)
     {
-        //
+        return view('admin.museums.edit', compact('museum'));
     }
 
     /**
@@ -77,9 +77,17 @@ class MuseumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MuseumRequest $request, Museum $museum)
     {
-        //
+        $form_data = $request->all();
+        $form_data = $request->all();
+        if($form_data['title'] !== $museum->title){
+            $form_data['slug'] = Museum::generateSlug($form_data['title']);
+        }
+
+        $museum->update($form_data);
+
+        return redirect()->route('admin.museums.show', compact('museum'));
     }
 
     /**
@@ -88,8 +96,10 @@ class MuseumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Museum $museum)
     {
-        //
+        $museum->delete();
+
+        return redirect()->route('admin.museums.index')->with('deleted', "$museum->name eliminato correttamente" );
     }
 }
